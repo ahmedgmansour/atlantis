@@ -14,8 +14,6 @@ projects:
   autoplan:
     when_modified: ["*.tf", "*.tfvars"]
     enabled: true
-  silence_pr_comments: ["apply"]
-  execution_order_group: 1
   workflow: myworkflow
 workflows:
   myworkflow:
