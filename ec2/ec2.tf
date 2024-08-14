@@ -7,17 +7,22 @@ terraform {
   }
 
   required_version = ">= 1.2.0"
+  backend "s3" {
+    bucket = "atlantiss3"
+#    key    = ""
+    region = "us-east-1"
+ }
 }
 
 provider "aws" {
-  region  = "us-west-2"
-  profile = "jack.roper"
+  region  = "us-east-1"
 }
 
-resource "aws_instance" "example_server" {
-  ami           = "ami-04e914639d0cca79a"
-  instance_type = "t2.micro"
 
+resource "aws_instance" "example_server" {
+  ami           = "ami-0c41531b8d18cc72b"
+  instance_type = "t2.large"
+  subnet_id     = "subnet-0846c66433e90beba"
   tags = {
     Name = "JacksBlogExample"
   }
