@@ -1,17 +1,21 @@
 version: 3
 automerge: true
+autodiscover:
+  mode: auto
 delete_source_branch_on_merge: true
 parallel_plan: true
 parallel_apply: true
 projects:
 - name: ec2
-  dir: ./ec2
+  dir: ec2
   workspace: default
   terraform_version: v1.9.3
   delete_source_branch_on_merge: true
   autoplan:
     when_modified: ["*.tf", "*.tfvars"]
     enabled: true
+  silence_pr_comments: ["apply"]
+  execution_order_group: 1
   workflow: myworkflow
 workflows:
   myworkflow:
