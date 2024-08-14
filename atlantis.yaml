@@ -6,7 +6,7 @@ parallel_apply: true
 ATLANTIS_SILENCE_ALLOWLIST_ERRORS: true
 projects:
 - name: ec2
-  dir: ec2/
+  dir: ec2
   workspace: default
   terraform_version: v1.9.3
   delete_source_branch_on_merge: true
@@ -14,6 +14,7 @@ projects:
     when_modified: ["*.tf", "*.tfvars"]
     enabled: true
   apply_requirements: [mergeable, approved]
+  plan_requirements: [mergeable, approved, undiverged]
   workflow: myworkflow
 workflows:
   myworkflow:
