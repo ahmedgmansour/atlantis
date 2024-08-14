@@ -14,9 +14,6 @@ projects:
   autoplan:
     when_modified: ["*.tf", "*.tfvars"]
     enabled: true
-  apply_requirements: [mergeable, approved]
-  plan_requirements: [mergeable, approved, undiverged]
-  import_requirements: [mergeable, approved, undiverged]
   silence_pr_comments: ["apply"]
   execution_order_group: 1
   workflow: myworkflow
